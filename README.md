@@ -11,12 +11,12 @@ Features
 
 Installation
 
-    Clone the Repository
+Clone the Repository
 
-    bash
+bash
 
-git clone [<repository-url>](https://github.com/abdullahalmasri/Task-Monitoring.git)
-cd Task-Monitoring
+    git clone [<repository-url>](https://github.com/abdullahalmasri/Task-Monitoring.git)
+    cd Task-Monitoring
 
 Install Dependencies
 
@@ -24,7 +24,7 @@ Make sure you have Node.js and npm installed. Then, install the required npm pac
 
 bash
 
-npm install
+    npm install
 
 Create Required Directories
 
@@ -32,7 +32,7 @@ Ensure the uploads directory exists for storing uploaded files:
 
 bash
 
-mkdir uploads
+    mkdir uploads
 
 Create users.json and files.json Files
 
@@ -44,19 +44,19 @@ bash
 
 Running the Application
 
-    Start the Server
+Start the Server
 
-    Start the application with the following command:
+Start the application with the following command:
 
-    bash
+bash
 
     npm start
 
-    The server will be running at http://localhost:3000.
+The server will be running at http://localhost:3000.
 
-    Access the Application
+Access the Application
 
-    Open your browser and navigate to http://localhost:3000 to access the application.
+Open your browser and navigate to http://localhost:3000 to access the application.
 
 Endpoints
 
