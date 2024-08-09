@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .about-us-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .about-us-header h1 {
+            font-size: 2.5rem;
+            color: #007bff;
+        }
+        .about-us-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .about-us-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+        }
+        .about-us-content p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Task System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/<%= encodeURIComponent(username) %>">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contactUs/<%= username %>">Contact Us</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto d-flex align-items-center">
+            <div class="dropdown">
+              <a
+                data-toggle="dropdown"
+                class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                aria-expanded="false"
+              >
+                <% if (user.profilePicPath) { %>
+                <img
+                  src="<%= user.profilePicPath %>"
+                  class="rounded-circle"
+                  height="25"
+                  alt="User Avatar"
+                  loading="lazy"
+                />
+                <% } else { %>
+                <img
+                  src="https://cdn-icons-png.freepik.com/512/266/266033.png"
+                  class="rounded-circle"
+                  height="25"
+                  alt="User Avatar"
+                  loading="lazy"
+                />
+                <% } %>
+              </a>
+  
+              <ul
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="navbarDropdownMenuAvatar"
+              >
+                <li>
+                  <a class="dropdown-item" href="/profile/<%= username %>">
+                    My profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Settings</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/login">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="about-us-header">
+        <h1>About Task System</h1>
+    </div>
+    <div class="about-us-content">
+        <h3>Our Mission</h3>
+        <p>
+            At Task System, our goal is to streamline the way students submit their tasks and how teachers monitor them. We believe in fostering a seamless educational experience where technology aids learning and enhances productivity. Our platform is designed to be intuitive and efficient, ensuring that both students and teachers can focus on what matters most—learning and teaching.
+        </p>
+
+        <h3>How It Works</h3>
+        <p>
+            The Task System provides a user-friendly interface where students can easily upload their assignments and tasks. Teachers can then review these submissions, monitor progress, and provide timely feedback. The status of each task is tracked in real-time, allowing both students and teachers to stay updated on the progress of each task.
+        </p>
+
+        <h3>Our Vision</h3>
+        <p>
+            We envision a world where the administrative burden of education is minimized, allowing for more time spent on meaningful interaction and personal growth. The Task System is our contribution to this vision, enabling educators to effectively manage their classrooms and helping students to achieve their full potential.
+        </p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

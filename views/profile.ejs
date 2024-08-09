@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .profile-card {
+        max-width: 500px;
+        margin: 20px auto;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #fff;
+      }
+      .profile-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .profile-card-body {
+        padding: 20px;
+        text-align: center;
+      }
+      .profile-card-body h2 {
+        margin: 10px 0;
+        font-size: 24px;
+      }
+      .profile-card-body p {
+        margin: 5px 0;
+        font-size: 18px;
+      }
+      .profile-card-body .btn {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="profile-card">
+        <img src="<%= user.profilePicPath %>" alt="Profile Picture">
+        <div class="profile-card-body">
+          <form id="editProfileForm" enctype="multipart/form-data">
+            <input type="hidden" name="username" value="<%= user.username %>" />
+            <input type="hidden" name="UserId" value="<%= user.UserId %>" />
+            <input type="hidden" name="role" value="<%= user.role %>" />
+
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                name="phone"
+                value="<%= user.phone %>"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="profilePic">Profile Picture:</label>
+              <input
+                type="file"
+                class="form-control"
+                id="profilePic"
+                name="profilePic"
+                accept="image/*"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+          <a href="/profile/<%= user.username %>" class="btn btn-secondary mt-2">Back to Profile</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Teacher Dashboard</h2>
+        <form id="updateStatusForm" class="mt-4">
+            <div class="form-group">
+                <label for="username">Student Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="fileName">File Name:</label>
+                <select class="form-control" id="fileName" name="fileName" required></select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="Initial Submit">Initial Submit</option>
+                    <option value="Downloaded">Downloaded</option>
+                    <option value="Reviewed">Reviewed</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Fail">Fail</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="updateStatus()">Update Status</button>
+        </form>
+    </div>
+    <script>
+        function loadFileNames() {
+            fetch('/files')
+                .then(response => response.json())
+                .then(files => {
+                    const fileNameSelect = document.getElementById('fileName');
+                    fileNameSelect.innerHTML = ''; // Clear existing options
+                    files.forEach(file => {
+                        const option = document.createElement('option');
+                        option.value = file.fileName;
+                        option.text = file.fileName;
+                        fileNameSelect.add(option);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function updateStatus() {
+            const username = document.getElementById('username').value;
+            const fileName = document.getElementById('fileName').value;
+            const status = document.getElementById('status').value;
+
+            fetch('/update-status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, fileName, status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to update status');
+            });
+        }
+
+        window.onload = loadFileNames;
+    </script>
+</body>
+</html>
