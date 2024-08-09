@@ -15,7 +15,7 @@ Clone the Repository
 
 bash
 
-    git clone [<repository-url>](https://github.com/abdullahalmasri/Task-Monitoring.git)
+    git clone https://github.com/abdullahalmasri/Task-Monitoring.git
     cd Task-Monitoring
 
 Install Dependencies
